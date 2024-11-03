@@ -4,6 +4,7 @@
 // initalization of seat number
 
 let seat_number=0;
+let total_price=0
 
 
 
@@ -27,6 +28,7 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
         if(event.target.style.backgroundColor == 'green'){
             event.target.style.backgroundColor='';
             seat_number--;
+            total_price=total_price-seat_price;
 
             // remove the child
             sitshow.removeChild(sitshow.lastChild);
@@ -51,6 +53,9 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
 
             sitshow.appendChild(li);
 
+            total_price=total_price+seat_price;
+
+
 
 
 
@@ -58,6 +63,12 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
 
 
         document.getElementById('seat-number').textContent=seat_number;
+        document.getElementById('grand-total').textContent=total_price;
+
+        console.log("its working ",total_price)
+        console.log("its working ",typeof(total_price))
+
+
         
 
 
