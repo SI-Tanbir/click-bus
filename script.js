@@ -16,6 +16,7 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
     // initializing value
     let seat_price=750;
     let seat_name=event.target.textContent;
+    let sitshow=document.getElementById('seat-list')
 
     if(event.target.classList.contains('bus-button')){
 
@@ -27,6 +28,10 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
             event.target.style.backgroundColor='';
             seat_number--;
 
+            // remove the child
+            sitshow.removeChild(sitshow.lastChild);
+
+
 
         
         }
@@ -34,6 +39,20 @@ document.querySelector(".button-container").addEventListener('click', (event) =>
         else{
             event.target.style.backgroundColor='green';
             seat_number++;
+
+            // sitshow;
+            // let li=document.createElement(`<span>${seat_name}</span>  <p> Economi class</p>  <span>${seat_price}</span> `)
+
+            let li=document.createElement('li');
+
+
+            li.innerText=`${seat_name}    Economic class   ${seat_price} `;
+
+
+            sitshow.appendChild(li);
+
+
+
 
         }
 
